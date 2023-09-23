@@ -1,31 +1,51 @@
-function verificarResposta() {
-    var inputResposta = document.getElementById("resposta");
-    var divRespostaCorreta = document.getElementById("respostaCorreta");
-    var botaoVerificar = document.getElementById("botaoVerificar");
-    var tituloPergunta = document.getElementById("tituloPergunta");
-    var imagemResposta = document.getElementById("imagemResposta"); // Obtemos a referência da imagem
-    
-    var resposta = inputResposta.value;
-    
-    if(resposta.trim().toLowerCase() === "paris") {
-        tocarAudio();
-        divRespostaCorreta.innerHTML = "Certa Resposta!<br>" + resposta.toUpperCase();
+// Variável para armazenar os dados do quiz
+let quizData;
 
-        // Definimos a fonte da imagem e a tornamos visível
-        imagemResposta.src = '/cupom.jpg';
-        imagemResposta.style.display = "block";
-        
-        divRespostaCorreta.style.display = "block";
+// Função para carregar os dados do JSON
+function loadData() {
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            quizData = data;
+            // Atualizar a pergunta na página com os dados carregados
+            document.getElementById('pergunta').textContent = quizData.pergunta;
+        })
+        .catch(error => console.error('Erro ao carregar os dados:', error));
+}
+
+// Chamar a função loadData assim que o script for executado
+loadData();
+
+// Função para verificar a resposta
+function verificarResposta() {
+    var respostaElement = document.getElementById("resposta");
+    var botaoVerificar = document.getElementById("botaoVerificar");
+    var resultado = document.getElementById("resultado");
+    var resposta = respostaElement.value;
+    
+    if(resposta.trim().toLowerCase() === quizData.resposta) {
+        tocarAudio();
+        // Ocultar o input e o botão
+        respostaElement.style.display = "none";
         botaoVerificar.style.display = "none";
-        tituloPergunta.style.display = "none";
-        inputResposta.style.display = "none";
+        // Mostrar a resposta
+        resultado.innerHTML = "***" + resposta.toUpperCase();
+        // Redefinir a cor da fonte do input para preto
+        respostaElement.style.color = "black";        
     } else {
+        tocarAudio2();
         alert("Resposta incorreta. Tente novamente.");
-        divRespostaCorreta.style.display = "none";
+        // Alterar a cor da fonte do input para vermelho
+        respostaElement.style.color = "red";
     }
 }
 
 function tocarAudio() {
-    var audio = new Audio('/certa.mp3');
+    var audio = new Audio('./certo.mp3');
+    audio.play();
+}
+
+function tocarAudio2() {
+    var audio = new Audio('./errou.mp3');
     audio.play();
 }
