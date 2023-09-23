@@ -1,0 +1,46 @@
+/* Em um arquivo de estilo externo ou na seção <style> do seu HTML */
+body {
+    background-color: lightgray;
+    color: navy;
+    font-family: arial;
+    font-weight: bold;
+    background-image: url('back_quizz2.jpg');
+    background-size: cover;    
+}
+
+/* Para estilizar o botão de verificação */
+#verificar {
+    background-color: green;
+    color: white;
+}
+
+/* Aumentar o tamanho do input */
+input[type="text"] {
+    font-size: 20px; /* Ajuste para o tamanho desejado */
+    padding: 10px 15px; /* Espaçamento interno para tornar o input maior */
+    width: 300px; /* Ajuste para a largura desejada */
+}
+
+/* Aumentar o tamanho do botão */
+button {
+    font-size: 20px; /* Ajuste para o tamanho desejado */
+    padding: 10px 20px; /* Espaçamento interno para tornar o botão maior */
+    cursor: pointer; /* Muda o cursor para indicar ação */
+}
+
+/* Estilo adicional: mudar a cor de fundo e a cor do texto do botão ao passar o mouse */
+button:hover {
+    background-color: #ddd; /* Cor de fundo ao passar o mouse */
+    color: #333; /* Cor do texto ao passar o mouse */
+}
+
+#pergunta {
+    font-size: 34px; /* Ajuste para o tamanho desejado */
+    font-family: arial;
+}
+
+#resultado {
+    font-size: 34px; /* Ajuste para o tamanho desejado */
+    font-family: arial;
+    font-weight: bold;
+}

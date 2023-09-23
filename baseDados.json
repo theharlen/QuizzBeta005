@@ -1,0 +1,11 @@
+[
+    {
+        "question": "Qual é a capital da França?",
+        "answer": "Paris"
+    },
+    {
+        "question": "Qual é a capital do Brasil?",
+        "answer": "Brasília"
+    },
+    // ... outras perguntas e respostas
+]
