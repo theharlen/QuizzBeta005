@@ -41,11 +41,11 @@ function verificarResposta() {
 }
 
 function tocarAudio() {
-    var audio = new Audio('G:/My Drive/Programação/JavaScript/QuizzBeta005/certo.mp3');
+    var audio = new Audio('./certo.mp3');
     audio.play();
 }
 
 function tocarAudio2() {
-    var audio = new Audio('G:/My Drive/Programação/JavaScript/QuizzBeta005/errou.mp3');
+    var audio = new Audio('./errou.mp3');
     audio.play();
 }
